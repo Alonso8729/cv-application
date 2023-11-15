@@ -1,60 +1,45 @@
 import React, { useState } from "react"
 import InputDiv from "../InputDiv"
 
-export default function Personal() {
-    const [personalInfo, setPersonalInfo] = useState({ fullName: '', email: '', phoneNumber: '', address: '' })
-
-    const handleChange = (e) => {
-        const {value,name} = e.target
-        setPersonalInfo((prevInfo)=>{
-            return {
-                ...prevInfo,
-                [name] : value
-            }
-        } )
-    }
-
+export default function Personal({email,fullName,phoneNumber,address,onChange}) {
+    
     return (
         <form>
             <h2>Personal Details</h2>
             <InputDiv
-                onChange={handleChange}
+                onChange={onChange}
                 type="text"
                 id="full-name"
                 placeholder="Enter first and last name"
-                value={personalInfo.fullName}
+                value={fullName}
                 label="Full Name"
-                name="fullName"
                 data-key="fullName"
             />
             <InputDiv
-                onChange={handleChange}
+                onChange={onChange}
                 type="email"
                 id="email"
                 placeholder="Enter email"
-                value={personalInfo.email}
+                value={email}
                 label="Email"
-                name="email"
                 data-key="email"
             />
             <InputDiv
-                onChange={handleChange}
+                onChange={onChange}
                 type="tel"
                 id="phone-number"
                 placeholder="Enter phone number"
-                value={personalInfo.phoneNumber}
+                value={phoneNumber}
                 label="Phone number"
-                name="phoneNumber"
                 data-key="phoneNumber"
             />
             <InputDiv
-                onChange={handleChange}
+                onChange={onChange}
                 type="text"
                 id="address"
                 placeholder="Enter City, Country"
-                value={personalInfo.address}
+                value={address}
                 label="Address"
-                name="address"
                 data-key="address"
             />
         </form>
