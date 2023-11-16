@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import InputDiv from "../InputDiv"
+import '../../styles/Personal.css'
 
-export default function Personal({email,fullName,phoneNumber,address,onChange}) {
-    
+export default function Personal({ email, fullName, phoneNumber, address, onChange }) {
+
     return (
-        <form>
+        <form className="personal-details">
             <h2>Personal Details</h2>
             <InputDiv
                 onChange={onChange}
