@@ -2,7 +2,8 @@ import React from "react";
 import { PersonalPreview } from "./Personal-Details/PersonalPreview";
 import '../styles/Resume.css'
 
-export default function Resume({email,fullName,phoneNumber,address}) {
+export default function Resume({personalInfo}) {
+    const {email,fullName,phoneNumber,address} = personalInfo
     return (
         <div className="resume-container">
             <div className="resume">
