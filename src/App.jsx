@@ -44,10 +44,9 @@ function App() {
   }
 
   const handleEducationDelete = (index) => {
-    const updatedList = { ...educationList }
+    const updatedList = [ ...educationList]
     updatedList.splice(index, 1);
     setEducationList(updatedList)
-
   }
 
   const handleToggle = (e) => {
