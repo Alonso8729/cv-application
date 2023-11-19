@@ -20,6 +20,7 @@ function App() {
   const [isEducationOpen, setIsEducationOpen] = useState(false);
   const [educationList, setEducationList] = useState(ExampleData.education);
   const [educationForm, setEducationForm] = useState(false)
+  const [isEditMode, setIsEditMode] = useState(false)
 
   const handlePersonalInfoChange = (e) => {
     e.preventDefault()
@@ -44,7 +45,7 @@ function App() {
   }
 
   const handleEducationDelete = (index) => {
-    const updatedList = [ ...educationList]
+    const updatedList = [...educationList]
     updatedList.splice(index, 1);
     setEducationList(updatedList)
   }
@@ -58,34 +59,40 @@ function App() {
   }
 
   const handleAddEducation = () => {
-    setEducationList((prevList) => [...prevList, educationInfo])
-    setEducationInfo({
-      degree: "",
-      school: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-      id: uniqid(),
-    })
+    if (isEditMode) {
+      setEducationList(prevList =>
+        prevList.map(item =>
+          item.id === personalInfo.id ? personalInfo : item))
+    }
+    else {
+      setEducationList((prevList) => [...prevList, educationInfo])
+    }
+    clearEducationInfo()
     setEducationForm(!educationForm);
   }
 
   const handleCancel = (section) => {
     if (section === 'education') {
-      setEducationInfo({
-        degree: "",
-        school: "",
-        location: "",
-        startDate: "",
-        endDate: "",
-        id: uniqid(),
-      });
+      clearEducationInfo()
       setEducationForm(!educationForm)
     }
   }
 
+  const handleEditEducation = (item) => {
+    setEducationInfo(item)
+    setEducationForm(!educationForm)
+    setIsEditMode(true)
+  }
 
-
+  const clearEducationInfo = () => {
+    setEducationInfo({
+      degree: "",
+      school: "",
+      location: "",
+      startDate: "",
+      endDate: ""
+    })
+  }
 
   const createForm = (sectionName) => {
 
@@ -110,9 +117,10 @@ function App() {
           onDelete={handleEducationDelete}
           onToggle={handleToggle}
           onSave={handleAddEducation}
-          onCancel={()=>handleCancel('education')}
+          onCancel={() => handleCancel('education')}
           isForm={educationForm}
           onButton={() => setEducationForm(!educationForm)}
+          onEdit={handleEditEducation}
         />
 
       </div>
