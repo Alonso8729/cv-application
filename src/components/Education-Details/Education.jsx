@@ -1,7 +1,19 @@
 import '../../styles/Education.css'
 import EducationForm from './EducationForm'
 
-export default function Education({ educationInfo,isOpen, onToggle, educationList, handleDelete, onSave, isForm, onButton, onCancel,onChange }) {
+export default function Education({
+    educationInfo,
+    isOpen,
+    onToggle,
+    educationList,
+    onDelete,
+    onSave,
+    isForm,
+    onButton,
+    onCancel,
+    onChange,
+    onEdit
+}) {
     return (
         <div className="education-details">
             <div className="education-header">
@@ -20,12 +32,12 @@ export default function Education({ educationInfo,isOpen, onToggle, educationLis
                         {educationList.length > 0 ?
                             <div className='education-list'>
                                 <ul>
-                                    {educationList.map((item) =>
+                                    {educationList.map((item, index) =>
                                         <div className='education-item'>
-                                            <li onClick={onToggle} key={item.key}>
+                                            <li onClick={() => onEdit(item)} key={item.key}>
                                                 {item.school}
                                             </li>
-                                            <i onClick={() => handleDelete(index)} className="fa-solid fa-trash-can"></i>
+                                            <i onClick={() => onDelete(index)} className="fa-solid fa-trash-can"></i>
                                         </div>
                                     )
                                     }
