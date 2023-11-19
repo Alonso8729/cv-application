@@ -2,7 +2,7 @@ import React from "react"
 import '../styles/InputDiv.css'
 
 export default function InputDiv({
-    id, placeholder, type, value, onChange, optional, label, name, "data-key": dataKey
+    id, placeholder, type, value, onChange, optional, label, "data-key": dataKey
 }) {
     return (
         <div className="input-div">
@@ -17,7 +17,6 @@ export default function InputDiv({
                     value={value}
                     onChange={onChange}
                     id={id}
-                    name={name}
                     data-key={dataKey}
                 </textarea>
             ) :
@@ -27,7 +26,6 @@ export default function InputDiv({
                     value={value}
                     onChange={onChange}
                     id={id}
-                    name={name}
                     data-key={dataKey}
                 />
             }
