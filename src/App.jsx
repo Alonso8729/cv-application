@@ -3,15 +3,24 @@ import './styles/App.css'
 import Personal from './components/Personal-Details/Personal'
 import Resume from './components/Resume'
 import Education from './components/Education-Details/Education'
+import ExampleData from './exampleData'
 import uniqid from 'uniqid';
 
 
 function App() {
-  const [personalInfo, setPersonalInfo] = useState({ fullName: '', email: '', phoneNumber: '', address: '' })
-  const [educationInfo, setEducationInfo] = useState({ school: '', degree: '', startDate: '', endDate: '', location: '', id: uniqid() })
+  const [personalInfo, setPersonalInfo] = useState(ExampleData.personalInfo)
+  const [educationInfo, setEducationInfo] = useState({
+    companyName: "",
+    positionTitle: "",
+    location: "",
+    description: "",
+    startDate: "",
+    endDate: "",
+    id: "",
+  })
   const [isEducationOpen, setIsEducationOpen] = useState(false);
-  const [educationList, setEducationList] = ([])
-
+  const [educationList, setEducationList] = useState(ExampleData.education)
+  
   const handlePersonalInfoChange = (e) => {
     const { key } = e.target.dataset
     setPersonalInfo((prevInfo) => {
@@ -33,8 +42,8 @@ function App() {
   }
 
   const handleEducationDelete = (index) => {
-    const updatedList = { ...educationList}
-    updatedList.splice(index,1);
+    const updatedList = { ...educationList }
+    updatedList.splice(index, 1);
     setEducationList(updatedList)
   }
 
@@ -67,11 +76,11 @@ function App() {
         />
         <Education
           educationList={educationList}
-          educationInfo={educationInfo}
           onClick={handleToggle}
           isOpen={isEducationOpen}
           onChange={handleEducationInfoChange}
-          onDelete={handleEducationDelete} />
+          onDelete={handleEducationDelete}
+          onToggle={handleToggle} />
       </div>
       <div className="resume-container">
         <Resume
