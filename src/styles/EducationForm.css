@@ -1,0 +1,12 @@
+.education-form {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0 20px 20px 20px;
+}
+
+.dates {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}

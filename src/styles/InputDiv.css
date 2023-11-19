@@ -1,0 +1,21 @@
+.input-div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+input,textarea{
+    background-color: #f3f3f3;
+    outline: none;
+    border-radius: 12px;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+}
+
+.input-optional {
+    font-size: 0.7rem;
+    color: grey;
+    margin-left: 5px;
+    font-family: 'Roboto';
+}

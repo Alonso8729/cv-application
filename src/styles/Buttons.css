@@ -1,0 +1,26 @@
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top:20px;
+}
+
+button {
+    outline: none;
+    font-family: inherit;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.save-btn{
+    background-color: rgb(34, 165, 236);
+    color: #fff;
+    border: 1px solid;
+    font-family: 'Roboto',sans-serif;
+}
+
+.cancel-btn {
+    background-color: #f3f3f3;
+    border: 1px solid grey;
+    
+}

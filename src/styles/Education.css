@@ -1,0 +1,87 @@
+.education-details {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.education-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.education-title {
+    font-family: 'Roboto', sans-serif;
+}
+
+.education-header i {
+    font-size: 1.5rem;
+}
+
+.left-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.right-header>i {
+    transition: transform 0.5s;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.education-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 20px;
+    border-top: 5px solid #f3f3f3;
+
+}
+
+.education-item>li {
+    list-style: none;
+    font-weight: 400;
+    font-family: 'Roboto';
+}
+
+.education-item>i {
+    color: rgb(215, 30, 30);
+    cursor: pointer;
+}
+
+.open {
+    transform: rotate(180deg);
+}
+
+.add-button-ctn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.add-ed-button {
+    outline: none;
+    font-family: inherit;
+    background-color: #fff;
+    border:5px solid #f3f3f3;
+    border-radius: 30px;
+    padding: 10px 20px;
+    color: rgb(14, 55, 78);
+    font-family: 'Roboto';
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.add-ed-button > i {
+    margin-right: 7px;
+}
+
+.hide {
+    display: none;
+}
