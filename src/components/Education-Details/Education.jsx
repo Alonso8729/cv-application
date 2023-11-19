@@ -1,6 +1,7 @@
 import '../../styles/Education.css'
+import EducationForm from './EducationForm'
 
-export default function Education({ isOpen, onToggle, educationList, handleDelete }) {
+export default function Education({ educationInfo,isOpen, onToggle, educationList, handleDelete, onSave, isForm, onButton, onCancel,onChange }) {
     return (
         <div className="education-details">
             <div className="education-header">
@@ -15,7 +16,7 @@ export default function Education({ isOpen, onToggle, educationList, handleDelet
             {/** Display education content if open*/}
             {isOpen &&
                 <>
-                    <div className="education-content">
+                    <div className={`education-content ${isForm ? 'hide' : ''}`}>
                         {educationList.length > 0 ?
                             <div className='education-list'>
                                 <ul>
@@ -31,11 +32,12 @@ export default function Education({ isOpen, onToggle, educationList, handleDelet
                                 </ul>
                             </div>
                             :
-                            <p>156651561651</p>
+                            ''
                         }
                     </div>
-                    <div className="add-button-ctn">
-                        <button className='add-ed-button'><i class="fa-solid fa-plus"></i>Education</button>
+                    <EducationForm educationInfo={educationInfo} onCancel={onCancel} onSave={onSave} isForm={isForm} onChange={onChange} />
+                    <div className={`add-button-ctn ${isForm ? 'hide' : ''}`}>
+                        <button onClick={onButton} className='add-ed-button'><i className="fa-solid fa-plus"></i>Education</button>
                     </div>
                 </>
             }
