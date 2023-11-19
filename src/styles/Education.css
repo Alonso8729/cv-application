@@ -36,10 +36,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    cursor: pointer;
     padding: 20px;
     border-top: 5px solid #f3f3f3;
+}
 
+.education-item:last-child {
+    border-bottom: 5px solid #f3f3f3;
 }
 
 .education-item>li {
@@ -48,9 +50,23 @@
     font-family: 'Roboto';
 }
 
-.education-item>i {
-    color: rgb(215, 30, 30);
+
+.item-buttons {
+    display: flex;
+    gap: 7px;
     cursor: pointer;
+}
+
+.item-buttons > i {
+    font-size: 1.1rem;
+}
+
+.delete-icon {
+    color: rgb(215, 30, 30);
+}
+
+.edit-icon {
+    color: rgb(14, 55, 78);
 }
 
 .open {
@@ -62,14 +78,14 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    
+
 }
 
 .add-ed-button {
     outline: none;
     font-family: inherit;
     background-color: #fff;
-    border:5px solid #f3f3f3;
+    border: 5px solid #f3f3f3;
     border-radius: 30px;
     padding: 10px 20px;
     color: rgb(14, 55, 78);
@@ -78,7 +94,7 @@
     cursor: pointer;
 }
 
-.add-ed-button > i {
+.add-ed-button>i {
     margin-right: 7px;
 }
 

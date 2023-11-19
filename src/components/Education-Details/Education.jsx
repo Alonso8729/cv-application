@@ -34,10 +34,13 @@ export default function Education({
                                 <ul>
                                     {educationList.map((item, index) =>
                                         <div className='education-item'>
-                                            <li onClick={() => onEdit(item)} key={item.key}>
+                                            <li key={item.key}>
                                                 {item.school}
                                             </li>
-                                            <i onClick={() => onDelete(index)} className="fa-solid fa-trash-can"></i>
+                                            <div className="item-buttons">
+                                                <i onClick={() => onEdit(item)} class="edit-icon fa-regular fa-pen-to-square"></i>
+                                                <i onClick={() => onDelete(index)} className="delete-icon fa-solid fa-trash-can"></i>
+                                            </div>
                                         </div>
                                     )
                                     }
