@@ -62,12 +62,13 @@ function App() {
     if (isEditMode) {
       setEducationList(prevList =>
         prevList.map(item =>
-          item.id === personalInfo.id ? personalInfo : item))
+          item.id === educationInfo.id ? educationInfo : item))
     }
     else {
       setEducationList((prevList) => [...prevList, educationInfo])
     }
     clearEducationInfo()
+    setIsEditMode(false)
     setEducationForm(!educationForm);
   }
 
@@ -90,7 +91,8 @@ function App() {
       school: "",
       location: "",
       startDate: "",
-      endDate: ""
+      endDate: "",
+      id: uniqid(),
     })
   }
 
