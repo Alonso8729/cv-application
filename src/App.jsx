@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import './styles/App.css'
-import Personal from './components/Personal-Details/Personal'
+import Personal from './components/Personal/Personal'
 import Resume from './components/Resume'
-import Education from './components/Education-Details/Education'
+import Education from './components/Education/Education'
+import Experience from './components/Experience/Experience'
 import ExampleData from './exampleData'
 import uniqid from 'uniqid';
 
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState(ExampleData.personalInfo)
+  //Education states
   const [educationInfo, setEducationInfo] = useState({
     degree: "",
     school: "",
@@ -20,7 +22,21 @@ function App() {
   const [isEducationOpen, setIsEducationOpen] = useState(false);
   const [educationList, setEducationList] = useState(ExampleData.education);
   const [educationForm, setEducationForm] = useState(false)
+  //Experience states
+  const [experienceInfo, setExperienceInfo] = useState({
+    companyName: "",
+    positionTitle: "",
+    location: "",
+    description: "",
+    startDate: "",
+    endDate: "",
+    id: uniqid(),
+  })
+  const [experienceList, setExperienceList] = useState(ExampleData.experience)
+  const [isExperienceOpen, setIsExperienceOpen] = useState(false)
+  const [experienceForm, setExperienceForm] = useState(false)
   const [isEditMode, setIsEditMode] = useState(false)
+
 
   const handlePersonalInfoChange = (e) => {
     e.preventDefault()
@@ -33,21 +49,38 @@ function App() {
     })
   }
 
-  const handleEducationInfoChange = (e) => {
+  const handleSectionChange = (e, section) => {
     e.preventDefault()
     const { key } = e.target.dataset
-    setEducationInfo((prevInfo) => {
-      return {
-        ...prevInfo,
-        [key]: e.target.value
-      }
-    })
+    if (section === 'education') {
+      setEducationInfo((prevInfo) => {
+        return {
+          ...prevInfo,
+          [key]: e.target.value
+        }
+      })
+    }
+    else if (section === 'experience') {
+      setExperienceInfo((prevInfo) => {
+        return {
+          ...prevInfo,
+          [key]: e.target.value
+        }
+      })
+    }
   }
 
-  const handleEducationDelete = (index) => {
-    const updatedList = [...educationList]
-    updatedList.splice(index, 1);
-    setEducationList(updatedList)
+  const handleDelete = (index, section) => {
+    if (section === 'education') {
+      const updatedList = [...educationList]
+      updatedList.splice(index, 1);
+      setEducationList(updatedList)
+    }
+    else if (section === 'experience') {
+      const updatedList = [...experienceList]
+      updatedList.splice(index, 1);
+      setExperienceList(updatedList)
+    }
   }
 
   const handleToggle = (e) => {
@@ -56,49 +89,82 @@ function App() {
     if (key === 'education') {
       setIsEducationOpen(!isEducationOpen)
     }
+    else if (key === 'experience') {
+      setIsExperienceOpen(!isExperienceOpen)
+    }
   }
 
-  const handleAddEducation = () => {
-    if (isEditMode) {
-      setEducationList(prevList =>
-        prevList.map(item =>
-          item.id === educationInfo.id ? educationInfo : item))
+  const handleSectionAdd = (section) => {
+    if (section === 'education') {
+      if (isEditMode) {
+        setEducationList(prevList =>
+          prevList.map(item =>
+            item.id === educationInfo.id ? educationInfo : item))
+      }
+      else {
+        setEducationList((prevList) => [...prevList, educationInfo])
+      }
+      clearInfo('education')
+
+      setEducationForm(!educationForm);
     }
-    else {
-      setEducationList((prevList) => [...prevList, educationInfo])
+    else if (section === 'experience') {
+      if (isEditMode) {
+        setExperienceList(prevList =>
+          prevList.map(item =>
+            item.id === experienceInfo.id ? experienceInfo : item))
+      }
+      else {
+        setExperienceList((prevList) => [...prevList, ExperienceInfo])
+      }
+      clearInfo('experience')
     }
-    clearEducationInfo()
     setIsEditMode(false)
-    setEducationForm(!educationForm);
   }
 
   const handleCancel = (section) => {
     if (section === 'education') {
-      clearEducationInfo()
+      clearInfo('education')
       setEducationForm(!educationForm)
     }
   }
 
-  const handleEditEducation = (item) => {
-    setEducationInfo(item)
-    setEducationForm(!educationForm)
+  const handleEdit = (item, section) => {
+    if (section === 'education') {
+      setEducationInfo(item)
+      setEducationForm(!educationForm)
+    }
+    else if (section === 'experience') {
+      setExperienceInfo(item)
+      setExperienceForm(!experienceForm)
+    }
     setIsEditMode(true)
   }
 
-  const clearEducationInfo = () => {
-    setEducationInfo({
-      degree: "",
-      school: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-      id: uniqid(),
-    })
+  const clearInfo = (section) => {
+    if (section === 'education') {
+      setEducationInfo({
+        degree: "",
+        school: "",
+        location: "",
+        startDate: "",
+        endDate: "",
+        id: uniqid(),
+      })
+    }
+    else if (section === 'experience') {
+      setExperienceInfo({
+        companyName: "",
+        positionTitle: "",
+        location: "",
+        description: "",
+        startDate: "",
+        endDate: "",
+        id: uniqid(),
+      })
+    }
   }
 
-  const createForm = (sectionName) => {
-
-  }
 
   return (
     <div className='app'>
@@ -113,22 +179,33 @@ function App() {
         <Education
           educationList={educationList}
           educationInfo={educationInfo}
-          onClick={handleToggle}
           isOpen={isEducationOpen}
-          onChange={handleEducationInfoChange}
-          onDelete={handleEducationDelete}
+          onChange={handleSectionChange}
+          onDelete={handleDelete}
           onToggle={handleToggle}
-          onSave={handleAddEducation}
-          onCancel={() => handleCancel('education')}
+          onSave={handleSectionAdd}
+          onCancel={handleCancel}
           isForm={educationForm}
           onButton={() => setEducationForm(!educationForm)}
-          onEdit={handleEditEducation}
+          onEdit={handleEdit}
         />
-
+        <Experience
+          experienceList={experienceList}
+          experienceInfo={experienceInfo}
+          isOpen={isExperienceOpen}
+          onChange={handleSectionChange}
+          onToggle={handleToggle}
+          onSave={handleSectionAdd}
+          onCancel={handleCancel}
+          isForm={experienceForm}
+          onButton={() => setExperienceForm(!experienceForm)}
+          onEdit={handleEdit}
+        />
       </div>
       <div className="resume-container">
         <Resume
           personalInfo={personalInfo}
+          educationList={educationList}
         />
       </div>
     </div>
