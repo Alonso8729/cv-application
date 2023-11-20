@@ -11,13 +11,16 @@ export default function InputDiv({
                 {optional && <span className="input-optional">Optional</span>}
             </label>
             {type === 'textarea' ? (
-                <textarea>
+                <textarea
+                    id={id}
                     type={type}
                     placeholder={placeholder}
                     value={value}
                     onChange={onChange}
-                    id={id}
                     data-key={dataKey}
+                    rows='5'
+                    columns='5'
+                >
                 </textarea>
             ) :
                 <input
