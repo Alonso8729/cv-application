@@ -1,0 +1,13 @@
+.app {
+    display: flex;
+    gap: 24px;
+    padding: 24px 36px;
+    justify-content: center;
+}
+
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex-basis: 25%;
+}

@@ -3,30 +3,30 @@
     flex-direction: column;
     text-align: center;
     background-color: rgb(14, 55, 78);
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 5rem;
 }
 
 .personal-name {
     color: #fff;
     font-weight: 700;
-    font-size: 2.6rem;
+    font-size: 2rem;
     font-family: 'Roboto', sans-serif;
 }
 
 .contact-info {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     color: #fff;
     flex-wrap: wrap;
-    padding-top: 1.2rem;
+    padding-top: 1rem;
 }
 
 .contact-info>div {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
     color: #fff;
     flex-wrap: wrap;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }

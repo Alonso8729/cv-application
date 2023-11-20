@@ -1,0 +1,42 @@
+.education-ctn {
+    padding: 2.5rem 5rem;
+}
+
+.education-head {
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.education-head>h2 {
+    color: rgb(14,55,78);
+    font-family: 'Roboto',sans-serif;
+    font-size: 1.3rem;
+}
+
+.ed-item {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.left-info {
+    min-width: 150px;
+}
+
+.ed-dates {
+    display: flex;
+    gap: 5px;
+}
+
+.school-item {
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.education-items {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
