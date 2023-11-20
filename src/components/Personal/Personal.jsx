@@ -8,7 +8,7 @@ export default function Personal({ email, fullName, phoneNumber, address, onChan
         <form className="personal-details">
             <h2>Personal Details</h2>
             <InputDiv
-                onChange={onChange}
+                onChange={(e)=>onChange(e,'personal')}
                 type="text"
                 id="full-name"
                 placeholder="Enter first and last name"
@@ -17,7 +17,7 @@ export default function Personal({ email, fullName, phoneNumber, address, onChan
                 data-key="fullName"
             />
             <InputDiv
-                onChange={onChange}
+                onChange={(e)=>onChange(e,'personal')}
                 type="email"
                 id="email"
                 placeholder="Enter email"
@@ -26,7 +26,7 @@ export default function Personal({ email, fullName, phoneNumber, address, onChan
                 data-key="email"
             />
             <InputDiv
-                onChange={onChange}
+                onChange={(e)=>onChange(e,'personal')}
                 type="tel"
                 id="phone-number"
                 placeholder="Enter phone number"
@@ -35,7 +35,7 @@ export default function Personal({ email, fullName, phoneNumber, address, onChan
                 data-key="phoneNumber"
             />
             <InputDiv
-                onChange={onChange}
+                onChange={(e)=>onChange(e,'personal')}
                 type="text"
                 id="address"
                 placeholder="Enter City, Country"
