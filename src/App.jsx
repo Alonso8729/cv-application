@@ -4,12 +4,15 @@ import Personal from './components/Personal/Personal'
 import Resume from './components/Resume'
 import Education from './components/Education/Education'
 import Experience from './components/Experience/Experience'
+import Skills from './components/Skills/Skills'
 import ExampleData from './exampleData'
 import uniqid from 'uniqid';
 
 
 function App() {
+  //Personal details state
   const [personalInfo, setPersonalInfo] = useState(ExampleData.personalInfo)
+
   //Education states
   const [educationInfo, setEducationInfo] = useState({
     degree: "",
@@ -22,6 +25,7 @@ function App() {
   const [isEducationOpen, setIsEducationOpen] = useState(false);
   const [educationList, setEducationList] = useState(ExampleData.education);
   const [educationForm, setEducationForm] = useState(false)
+
   //Experience states
   const [experienceInfo, setExperienceInfo] = useState({
     companyName: "",
@@ -35,19 +39,16 @@ function App() {
   const [experienceList, setExperienceList] = useState(ExampleData.experience)
   const [isExperienceOpen, setIsExperienceOpen] = useState(false)
   const [experienceForm, setExperienceForm] = useState(false)
+
+  //Skills states
+  const [skillsList, setSkillsList] = useState(ExampleData.skills)
+  const [newSkill, setNewSkill] = useState({ title: '', id: uniqid() })
+  const [isSkillsOpen, setIsSkillsOpen] = useState(false)
+  const [skillsForm, setSkillsForm] = useState(false)
+
+  //Mutual state
   const [isEditMode, setIsEditMode] = useState(false)
 
-
-  const handlePersonalInfoChange = (e) => {
-    e.preventDefault()
-    const { key } = e.target.dataset
-    setPersonalInfo((prevInfo) => {
-      return {
-        ...prevInfo,
-        [key]: e.target.value
-      }
-    })
-  }
 
   const handleSectionChange = (e, section) => {
     e.preventDefault()
@@ -68,6 +69,22 @@ function App() {
         }
       })
     }
+    else if (section === 'personal') {
+      setPersonalInfo((prevInfo) => {
+        return {
+          ...prevInfo,
+          [key]: e.target.value
+        }
+      })
+    }
+    else if (section === 'skills') {
+      setSkillsList(prevSkills => {
+        return {
+          ...prevSkills,
+          [key]: e.target.value
+        }
+      })
+    }
   }
 
   const handleDelete = (index, section) => {
@@ -81,6 +98,11 @@ function App() {
       updatedList.splice(index, 1);
       setExperienceList(updatedList)
     }
+    else if (section === 'skills') {
+      const updatedList = [...skillsList]
+      updatedList.splice(index, 1)
+      setSkillsList(updatedList)
+    }
   }
 
   const handleToggle = (e) => {
@@ -88,9 +110,18 @@ function App() {
     const { key } = e.target.dataset
     if (key === 'education') {
       setIsEducationOpen(!isEducationOpen)
+      setIsExperienceOpen(false);
+      setIsSkillsOpen(false)
     }
     else if (key === 'experience') {
       setIsExperienceOpen(!isExperienceOpen)
+      setIsEducationOpen(false);
+      setIsSkillsOpen(false)
+    }
+    else if (key === 'skills') {
+      setIsSkillsOpen(!isSkillsOpen)
+      setIsEducationOpen(false);
+      setIsExperienceOpen(false);
     }
   }
 
@@ -105,7 +136,6 @@ function App() {
         setEducationList((prevList) => [...prevList, educationInfo])
       }
       clearInfo('education')
-
       setEducationForm(!educationForm);
     }
     else if (section === 'experience') {
@@ -115,9 +145,23 @@ function App() {
             item.id === experienceInfo.id ? experienceInfo : item))
       }
       else {
-        setExperienceList((prevList) => [...prevList, ExperienceInfo])
+        setExperienceList((prevList) => [...prevList, experienceInfo])
       }
       clearInfo('experience')
+      setExperienceForm(!experienceForm)
+    }
+    else if (section === 'skills') {
+      if (isEditMode) {
+        setSkillsList(prevSkills =>
+          prevSkills.map(item =>
+            item.id === newSkill.id ? newSkill : item)
+        )
+      }
+      else {
+        setSkillsList(prevSkills => [...prevSkills, newSkill])
+      }
+      clearInfo('skills')
+      setSkillsForm(!skillsForm)
     }
     setIsEditMode(false)
   }
@@ -126,6 +170,14 @@ function App() {
     if (section === 'education') {
       clearInfo('education')
       setEducationForm(!educationForm)
+    }
+    else if (section === 'experience') {
+      clearInfo('experience')
+      setExperienceForm(!experienceForm)
+    }
+    else if (section === 'skills') {
+      clearInfo('skills')
+      setSkillsForm(!skillsForm)
     }
   }
 
@@ -137,6 +189,10 @@ function App() {
     else if (section === 'experience') {
       setExperienceInfo(item)
       setExperienceForm(!experienceForm)
+    }
+    else if (section === 'skills') {
+      setNewSkill(item)
+      setSkillsForm(!skillsForm)
     }
     setIsEditMode(true)
   }
@@ -163,6 +219,12 @@ function App() {
         id: uniqid(),
       })
     }
+    else if (section === 'skills') {
+      setNewSkill({
+        title: '',
+        id: uniqid()
+      })
+    }
   }
 
 
@@ -170,7 +232,7 @@ function App() {
     <div className='app'>
       <div className='edit-container'>
         <Personal
-          onChange={handlePersonalInfoChange}
+          onChange={handleSectionChange}
           email={personalInfo.email}
           fullName={personalInfo.fullName}
           phoneNumber={personalInfo.phoneNumber}
@@ -193,6 +255,7 @@ function App() {
           experienceList={experienceList}
           experienceInfo={experienceInfo}
           isOpen={isExperienceOpen}
+          onDelete={handleDelete}
           onChange={handleSectionChange}
           onToggle={handleToggle}
           onSave={handleSectionAdd}
@@ -201,11 +264,25 @@ function App() {
           onButton={() => setExperienceForm(!experienceForm)}
           onEdit={handleEdit}
         />
+        <Skills
+          skillsList={skillsList}
+          newSkill={newSkill}
+          isOpen={isSkillsOpen}
+          onDelete={handleDelete}
+          onChange={handleSectionChange}
+          onToggle={handleToggle}
+          onSave={handleSectionAdd}
+          onCancel={handleCancel}
+          isForm={skillsForm}
+          onButton={()=>setSkillsForm(!skillsForm)}
+          onEdit={handleEdit}
+        />
       </div>
       <div className="resume-container">
         <Resume
           personalInfo={personalInfo}
           educationList={educationList}
+          experienceList={experienceList}
         />
       </div>
     </div>
