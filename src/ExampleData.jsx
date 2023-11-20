@@ -36,6 +36,20 @@ const ExampleData = {
             endDate: "present",
             id: uniqid(),
         }
+    ],
+    skills: [
+        {
+            title: 'Seeker Expertise',
+            id: uniqid()
+        },
+        {
+            title: 'Team Leadership',
+            id: uniqid()
+        },
+        {
+            title: 'Broomstick Mastery',
+            id: uniqid()
+        }
     ]
 }
 
