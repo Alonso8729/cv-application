@@ -1,9 +1,10 @@
 import React from "react";
-import { PersonalPreview } from "./Personal-Details/PersonalPreview";
+import { PersonalPreview } from "./Personal/PersonalPreview";
 import '../styles/Resume.css'
+import EducationPreview from "./Education/EducationPreview";
 
-export default function Resume({personalInfo}) {
-    const {email,fullName,phoneNumber,address} = personalInfo
+export default function Resume({ personalInfo, educationList }) {
+    const { email, fullName, phoneNumber, address } = personalInfo
     return (
         <div className="resume-container">
             <div className="resume">
@@ -12,6 +13,9 @@ export default function Resume({personalInfo}) {
                     fullName={fullName}
                     phoneNumber={phoneNumber}
                     address={address}
+                />
+                <EducationPreview
+                    educationList={educationList}
                 />
             </div>
         </div>
