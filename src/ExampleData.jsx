@@ -59,7 +59,7 @@ const ExampleData = {
             id: uniqid()
         },
         {
-            title: 'Exceptional Flying Skills',
+            title: 'Flying Skills',
             id: uniqid()
         }
     ]
