@@ -1,0 +1,42 @@
+.template-ctn {
+    background-color: #fff;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 7px 29px 0 hsla(240, 5%, 41%, .2);
+    padding: 12px;
+    position: sticky;
+    top: 10px;
+    z-index: 3;
+}
+
+.template-btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.template-btns>button {
+    outline: none;
+    font-family: inherit;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    flex-grow: 1;
+    padding: 5px 10px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.template-btns>button:active {
+    transform: scale(0.95);
+}
+
+.clear-btn {
+    color: red;
+    background-color: #fff;
+}
+
+.clear-btn>i {
+    margin-right: 5px;
+}

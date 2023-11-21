@@ -19,3 +19,7 @@ input,textarea{
     margin-left: 5px;
     font-family: 'Roboto';
 }
+
+#description{
+    font-family: 'Noto Sans';
+}

@@ -1,0 +1,45 @@
+.experience-ctn{
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.experience-title {
+    font-family: 'Roboto', sans-serif;
+}
+
+.exp-left-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.exp-left-header  i {
+    font-size: 1.2rem;
+}
+
+.experience-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 5px solid #f3f3f3;
+}
+
+.experience-item:last-child {
+    border-bottom: 5px solid #f3f3f3;
+}
+
+.experience-item>li {
+    list-style: none;
+    font-weight: 400;
+    font-family: 'Roboto';
+}

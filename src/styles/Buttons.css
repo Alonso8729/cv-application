@@ -5,12 +5,11 @@
     margin-top: 20px;
 }
 
-button {
+.save-btn,.cancel-btn {
     outline: none;
     font-family: inherit;
     padding: 8px 15px;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 1rem;
 }
 
@@ -19,10 +18,12 @@ button {
     color: #fff;
     border: 1px solid;
     font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 }
 
 .cancel-btn {
     background-color: #f3f3f3;
     border: 1px solid grey;
     font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 }

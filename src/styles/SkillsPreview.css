@@ -1,0 +1,33 @@
+.skills-container {
+    padding: 0 5rem 2.5rem 5rem;
+}
+
+.skills-head {
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.skills-head>h2 {
+    color: rgb(14, 55, 78);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+}
+
+
+.skill-element>p {
+    background-color: rgb(14, 55, 78);
+    color: white;
+    border-radius: 30px;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.skills-items {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    
+    gap: 30px;
+    list-style: none;
+}

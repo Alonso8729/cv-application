@@ -1,42 +1,37 @@
-.education-ctn {
-    padding: 2.5rem 5rem;
+.experience-container {
+    padding: 0 5rem 2.5rem 5rem;
 }
 
-.education-head {
+.experience-head {
     background-color: #f3f3f3;
     text-align: center;
     padding: 5px 0;
 }
 
-.education-head>h2 {
+.experience-head>h2 {
     color: rgb(14, 55, 78);
     font-family: 'Roboto', sans-serif;
     font-size: 1.3rem;
 }
 
-.ed-item {
+.exp-item {
     list-style: none;
     display: flex;
     gap: 30px;
 }
 
-.left-info {
-    min-width: 170px;
-}
-
-.ed-dates {
-    display: flex;
-    gap: 5px;
-}
-
-.school-item {
+.item-company {
     font-family: inherit;
     font-weight: bold;
 }
 
-.education-items {
+.experience-items {
     margin-top: 15px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.item-desc {
+    margin-top: 5px;
 }

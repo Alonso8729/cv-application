@@ -1,0 +1,45 @@
+.skills-section{
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.skills-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.skills-title {
+    font-family: 'Roboto', sans-serif;
+}
+
+.skills-left-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skills-left-header > i {
+    font-size: 1.2rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 5px solid #f3f3f3;
+}
+
+.skill-item:last-child {
+    border-bottom: 5px solid #f3f3f3;
+}
+
+.skill-item>li {
+    list-style: none;
+    font-weight: 400;
+    font-family: 'Roboto';
+}
