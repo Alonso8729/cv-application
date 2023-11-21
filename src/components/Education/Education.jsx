@@ -38,8 +38,8 @@ export default function Education({
                                                 {item.school}
                                             </li>
                                             <div className="item-buttons">
-                                                <i onClick={() => onEdit(item,'education')} className="edit-icon fa-regular fa-pen-to-square"></i>
-                                                <i onClick={() => onDelete(index,'education')} className="delete-icon fa-solid fa-trash-can"></i>
+                                                <i onClick={() => onEdit(item, 'education')} className="edit-icon fa-regular fa-pen-to-square"></i>
+                                                <i onClick={() => onDelete(index, 'education')} className="delete-icon fa-solid fa-trash-can"></i>
                                             </div>
                                         </div>
                                     )
