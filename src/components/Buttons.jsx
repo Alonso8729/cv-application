@@ -4,9 +4,9 @@ export default function Buttons({ section, onSave, onCancel }) {
     return (
         <div className="buttons">
             <button type='button'
-                onClick={section === 'education' ? () => onCancel('education') : () => onCancel('experience')}
+                onClick={() => onCancel(`${section}`)}
                 className="cancel-btn">Cancel</button>
-            <button type='button' onClick={section === 'education' ? () => onSave('education') : () => onSave('experience')}
+            <button type='button' onClick={() => onSave(`${section}`)}
                 className="save-btn">Save</button>
         </div>
     )
