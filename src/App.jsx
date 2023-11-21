@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState} from 'react'
 import './styles/App.css'
 import Personal from './components/Personal/Personal'
 import Resume from './components/Resume'
@@ -7,7 +7,7 @@ import Experience from './components/Experience/Experience'
 import Skills from './components/Skills/Skills'
 import ExampleData from './exampleData'
 import uniqid from 'uniqid';
-
+import TemplateSection from './components/Template/TemplateSection'
 
 function App() {
   //Personal details state
@@ -51,41 +51,20 @@ function App() {
 
 
   const handleSectionChange = (e, section) => {
-    e.preventDefault()
-    const { key } = e.target.dataset
+    e.preventDefault();
+    const { key } = e.target.dataset;
+
     if (section === 'education') {
-      setEducationInfo((prevInfo) => {
-        return {
-          ...prevInfo,
-          [key]: e.target.value
-        }
-      })
+      setEducationInfo((prevInfo) => ({ ...prevInfo, [key]: e.target.value }));
+    } else if (section === 'experience') {
+      setExperienceInfo((prevInfo) => ({ ...prevInfo, [key]: e.target.value }));
+    } else if (section === 'personal') {
+      setPersonalInfo((prevInfo) => ({ ...prevInfo, [key]: e.target.value }));
+    } else if (section === 'skills') {
+      setNewSkill((prevSkill) => ({ ...prevSkill, [key]: e.target.value }));
     }
-    else if (section === 'experience') {
-      setExperienceInfo((prevInfo) => {
-        return {
-          ...prevInfo,
-          [key]: e.target.value
-        }
-      })
-    }
-    else if (section === 'personal') {
-      setPersonalInfo((prevInfo) => {
-        return {
-          ...prevInfo,
-          [key]: e.target.value
-        }
-      })
-    }
-    else if (section === 'skills') {
-      setSkillsList(prevSkills => {
-        return {
-          ...prevSkills,
-          [key]: e.target.value
-        }
-      })
-    }
-  }
+  };
+
 
   const handleDelete = (index, section) => {
     if (section === 'education') {
@@ -109,17 +88,15 @@ function App() {
     e.preventDefault()
     const { key } = e.target.dataset
     if (key === 'education') {
-      setIsEducationOpen(!isEducationOpen)
+      setIsEducationOpen((prev) => !prev);
       setIsExperienceOpen(false);
-      setIsSkillsOpen(false)
-    }
-    else if (key === 'experience') {
-      setIsExperienceOpen(!isExperienceOpen)
+      setIsSkillsOpen(false);
+    } else if (key === 'experience') {
+      setIsExperienceOpen((prev) => !prev);
       setIsEducationOpen(false);
-      setIsSkillsOpen(false)
-    }
-    else if (key === 'skills') {
-      setIsSkillsOpen(!isSkillsOpen)
+      setIsSkillsOpen(false);
+    } else if (key === 'skills') {
+      setIsSkillsOpen((prev) => !prev);
       setIsEducationOpen(false);
       setIsExperienceOpen(false);
     }
@@ -158,7 +135,7 @@ function App() {
         )
       }
       else {
-        setSkillsList(prevSkills => [...prevSkills, newSkill])
+        setSkillsList((prevSkills) => [...prevSkills, newSkill])
       }
       clearInfo('skills')
       setSkillsForm(!skillsForm)
@@ -225,12 +202,42 @@ function App() {
         id: uniqid()
       })
     }
+    else if (section === 'personal') {
+      setPersonalInfo({
+        fullName: "",
+        email: "",
+        phoneNumber: "",
+        address: ""
+      })
+    }
   }
 
+  const handleClearResume = () => {
+    setPersonalInfo([])
+    setEducationList([]);
+    setExperienceList([])
+    setSkillsList([])
+    clearInfo('personal')
+  }
+
+  const handleLoadExample = () => {
+    setPersonalInfo(ExampleData.personalInfo)
+    setEducationList(ExampleData.education);
+    setExperienceList(ExampleData.experience)
+    setSkillsList(ExampleData.skills)
+  }
 
   return (
     <div className='app'>
       <div className='edit-container'>
+        <TemplateSection
+          onClear={handleClearResume}
+          onLoad={handleLoadExample}
+          personalInfo={personalInfo}
+          educationList={educationList}
+          experienceList={experienceList}
+          skillsList={skillsList}
+        />
         <Personal
           onChange={handleSectionChange}
           email={personalInfo.email}
@@ -274,7 +281,7 @@ function App() {
           onSave={handleSectionAdd}
           onCancel={handleCancel}
           isForm={skillsForm}
-          onButton={()=>setSkillsForm(!skillsForm)}
+          onButton={() => setSkillsForm(!skillsForm)}
           onEdit={handleEdit}
         />
       </div>
@@ -283,6 +290,7 @@ function App() {
           personalInfo={personalInfo}
           educationList={educationList}
           experienceList={experienceList}
+          skillsList={skillsList}
         />
       </div>
     </div>
