@@ -5,7 +5,7 @@
     box-shadow: 0 7px 29px 0 hsla(240, 5%, 41%, .2);
     padding: 12px;
     position: sticky;
-    top: 10px;
+    top: 5px;
     z-index: 3;
 }
 
@@ -39,4 +39,14 @@
 
 .clear-btn>i {
     margin-right: 5px;
+}
+
+.download-btn {
+    background-color: rgb(34, 165, 236);
+    color: #fff;
+}
+
+.download-btn>i{
+    margin-right: 5px;
+    font-size: 1rem;
 }
