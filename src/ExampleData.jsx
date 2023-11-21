@@ -49,6 +49,18 @@ const ExampleData = {
         {
             title: 'Broomstick Mastery',
             id: uniqid()
+        },
+        {
+            title: 'Sportsmanship',
+            id: uniqid()
+        },
+        {
+            title: 'Adaptability',
+            id: uniqid()
+        },
+        {
+            title: 'Exceptional Flying Skills',
+            id: uniqid()
         }
     ]
 }
