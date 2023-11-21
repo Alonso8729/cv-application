@@ -1,5 +1,4 @@
 import InputDiv from "../InputDiv"
-import Education from "./Education"
 import '../../styles/EducationForm.css'
 import Buttons from "../Buttons"
 
