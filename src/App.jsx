@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useState } from 'react'
 import './styles/App.css'
 import Personal from './components/Personal/Personal'
 import Resume from './components/Resume'
@@ -8,6 +8,7 @@ import Skills from './components/Skills/Skills'
 import ExampleData from './exampleData'
 import uniqid from 'uniqid';
 import TemplateSection from './components/Template/TemplateSection'
+import ViewMode from './components/ViewMode'
 
 function App() {
   //Personal details state
@@ -46,9 +47,9 @@ function App() {
   const [isSkillsOpen, setIsSkillsOpen] = useState(false)
   const [skillsForm, setSkillsForm] = useState(false)
 
-  //Mutual state
+  //General states
   const [isEditMode, setIsEditMode] = useState(false)
-
+  const [isViewMode, setIsViewMode] = useState(true)
 
   const handleSectionChange = (e, section) => {
     e.preventDefault();
@@ -227,9 +228,13 @@ function App() {
     setSkillsList(ExampleData.skills)
   }
 
+  const handleViewMode = () => {
+    setIsViewMode(!isViewMode)
+  }
+
   return (
     <div className='app'>
-      <div className='edit-container'>
+      <div className={`edit-container ${isViewMode ? '' : ''}}`}>
         <TemplateSection
           onClear={handleClearResume}
           onLoad={handleLoadExample}
@@ -291,8 +296,13 @@ function App() {
           educationList={educationList}
           experienceList={experienceList}
           skillsList={skillsList}
+          isViewMode={isViewMode}
         />
       </div>
+      <ViewMode
+        handleView={handleViewMode}
+        isViewMode={isViewMode}
+      />
     </div>
   )
 }
