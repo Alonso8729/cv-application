@@ -9,6 +9,7 @@ import ExampleData from './exampleData'
 import uniqid from 'uniqid';
 import TemplateSection from './components/Template/TemplateSection'
 import ViewMode from './components/ViewMode'
+import HomePage from './components/HomePage';
 
 function App() {
   //Personal details state
@@ -234,7 +235,7 @@ function App() {
 
   return (
     <div className='app'>
-      <div className={`edit-container ${isViewMode ? '' : ''}}`}>
+      <div className='edit-container'>
         <TemplateSection
           onClear={handleClearResume}
           onLoad={handleLoadExample}
