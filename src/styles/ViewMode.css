@@ -1,0 +1,23 @@
+.view-container {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    border-radius: 50px;
+    box-shadow: #3c40434d 0 1px 2px, #3f444726 0 2px 6px 2px;
+    background-color: rgb(19, 82, 119);
+    padding: 10px 20px;
+}
+
+.view-icon {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.download-icon{
+    color: #fff;
+    font-size: 2rem;
+}

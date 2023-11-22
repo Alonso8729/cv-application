@@ -1,8 +1,8 @@
 .app {
     display: flex;
-    gap: 24px;
     padding: 24px 36px;
     justify-content: center;
+    gap: 2rem;
 }
 
 .edit-container {
@@ -10,4 +10,58 @@
     flex-direction: column;
     gap: 1.5rem;
     flex-basis: 25%;
+    
+}
+
+
+@media screen and (max-width:1150px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .resume-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        max-height: none;
+        transform: scale(0.75);
+        margin-top: 85px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .edit-container {
+        width: 100%;
+        max-height: none;
+       
+    }
+}
+
+@media screen and (max-width:670px) {
+    .resume-container {
+        transform: scale(0.6);
+        margin-top: 55px;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .resume-container {
+        transform: scale(0.55);
+        margin-top: 15px;
+
+    }
+}
+
+@media screen and (max-width:470px) {
+    .resume-container {
+        transform: scale(0.5);
+    }
+}
+
+@media screen and (max-width:420px) {
+    .resume-container {
+        transform: scale(0.45);
+    }
+
 }

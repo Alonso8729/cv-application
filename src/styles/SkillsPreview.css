@@ -1,5 +1,7 @@
 .skills-container {
     padding: 0 5rem 2.5rem 5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .skills-head {
@@ -26,8 +28,8 @@
 .skills-items {
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 1fr));
-    
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 30px;
     list-style: none;
 }
+

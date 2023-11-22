@@ -5,7 +5,8 @@
     margin: 10px 0;
 }
 
-input,textarea{
+input,
+textarea {
     background-color: #f3f3f3;
     outline: none;
     border-radius: 12px;
@@ -20,6 +21,16 @@ input,textarea{
     font-family: 'Roboto';
 }
 
-#description{
+#description {
     font-family: 'Noto Sans';
+}
+
+.input-div {
+    flex-grow: 1;
+}
+
+@media screen and (max-width:505px) {
+    .dates {
+        gap: 0 !important;
+    }
 }

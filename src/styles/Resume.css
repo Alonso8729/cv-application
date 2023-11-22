@@ -1,4 +1,12 @@
 .resume {
     background-color: #fff;
-    max-width: 21cm;
+    width: 800px;
+    height: 1000px;
+
+}
+
+.resume-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
