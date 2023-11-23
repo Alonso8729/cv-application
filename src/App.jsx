@@ -9,7 +9,6 @@ import ExampleData from './exampleData'
 import uniqid from 'uniqid';
 import TemplateSection from './components/Template/TemplateSection'
 import ViewMode from './components/ViewMode'
-import HomePage from './components/HomePage';
 
 function App() {
   //Personal details state
