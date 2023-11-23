@@ -1,5 +1,5 @@
 .bg-image {
-    background-image: url('../../brandi-redd-aJTiW00qqtI-unsplash.jpg');
+    background-image: url('../../public/brandi-redd-aJTiW00qqtI-unsplash.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -69,7 +69,7 @@
     }
 
     #homepage-btn {
-       font-size: 1.3rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -83,6 +83,6 @@
     }
 
     #homepage-btn {
-       font-size: 1rem;
+        font-size: 1rem;
     }
 }
