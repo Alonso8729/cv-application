@@ -26,7 +26,6 @@
         height: 100vh;
         max-height: none;
         transform: scale(0.75);
-        margin-top: 85px;
         width: 100%;
         justify-content: center;
     }
@@ -41,14 +40,12 @@
 @media screen and (max-width:670px) {
     .resume-container {
         transform: scale(0.6);
-        margin-top: 55px;
     }
 }
 
 @media screen and (max-width:550px) {
     .resume-container {
         transform: scale(0.55);
-        margin-top: 15px;
 
     }
 }
