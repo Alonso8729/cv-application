@@ -5,7 +5,7 @@ import Resume from './components/Resume'
 import Education from './components/Education/Education'
 import Experience from './components/Experience/Experience'
 import Skills from './components/Skills/Skills'
-import ExampleData from './exampleData'
+import ExampleData from './ExampleData'
 import uniqid from 'uniqid';
 import TemplateSection from './components/Template/TemplateSection'
 import ViewMode from './components/ViewMode'
