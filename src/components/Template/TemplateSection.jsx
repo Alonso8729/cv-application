@@ -1,5 +1,5 @@
 import '../../styles/TemplateSection.css'
-import ResumePDF from '../ResumePdf';
+import ResumePDF from '../ResumePDF.jsx'
 
 export default function TemplateSection({
     onClear,
