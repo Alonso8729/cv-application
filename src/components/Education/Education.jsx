@@ -34,7 +34,7 @@ export default function Education({
                                 <ul>
                                     {educationList.map((item, index) =>
                                         <div className='education-item'>
-                                            <li key={item.key}>
+                                            <li key={item.id}>
                                                 {item.school}
                                             </li>
                                             <div className="item-buttons">
