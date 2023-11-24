@@ -49,7 +49,7 @@ function App() {
 
   //General states
   const [isEditMode, setIsEditMode] = useState(false)
-  const [isViewMode, setIsViewMode] = useState(window.innerWidth > 1050);
+  const [isViewMode, setIsViewMode] = useState(window.innerWidth > 1150);
 
   useEffect(() => {
     const updateViewMode = () => {
