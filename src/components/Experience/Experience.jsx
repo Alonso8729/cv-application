@@ -34,7 +34,7 @@ export default function Experience({
                                 <ul>
                                     {experienceList.map((item, index) =>
                                         <div className='experience-item'>
-                                            <li key={item.key}>
+                                            <li key={item.id}>
                                                 {item.companyName}
                                             </li>
                                             <div className="item-buttons">

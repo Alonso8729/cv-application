@@ -34,7 +34,7 @@ export default function Skills({
                                 <ul>
                                     {skillsList.map((item, index) =>
                                         <div className='skill-item'>
-                                            <li key={item.key}>
+                                            <li key={item.id}>
                                                 {item.title}
                                             </li>
                                             <div className="item-buttons">
