@@ -1,5 +1,5 @@
 .bg-image {
-    background-image: url('../../public/brandi-redd-aJTiW00qqtI-unsplash.jpg');
+    background-image: url('../../public/ant-rozetsky-HXOllTSwrpM-unsplash.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -59,6 +59,12 @@
 
 }
 
+@media screen and (max-width:700px) {
+    .bg-image {
+        background-position: 15%;
+    }
+}
+
 @media screen and (max-width:540px) {
     .homepage-title {
         font-size: 3.2rem;
@@ -84,5 +90,9 @@
 
     #homepage-btn {
         font-size: 1rem;
+    }
+
+    .bg-image {
+        background-position: 36%;
     }
 }
