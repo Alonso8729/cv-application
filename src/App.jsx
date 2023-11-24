@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './styles/App.css'
 import Personal from './components/Personal/Personal'
 import Resume from './components/Resume'
@@ -9,7 +9,6 @@ import ExampleData from './exampleData'
 import uniqid from 'uniqid';
 import TemplateSection from './components/Template/TemplateSection'
 import ViewMode from './components/ViewMode'
-import HomePage from './components/HomePage';
 
 function App() {
   //Personal details state
@@ -50,7 +49,19 @@ function App() {
 
   //General states
   const [isEditMode, setIsEditMode] = useState(false)
-  const [isViewMode, setIsViewMode] = useState(true)
+  const [isViewMode, setIsViewMode] = useState(window.innerWidth > 1050);
+
+  useEffect(() => {
+    const updateViewMode = () => {
+      setIsViewMode(window.innerWidth > 1150);
+    };
+
+    window.addEventListener('resize', updateViewMode);
+    updateViewMode();
+    return () => {
+      window.removeEventListener('resize', updateViewMode);
+    };
+  }, []);
 
   const handleSectionChange = (e, section) => {
     e.preventDefault();
