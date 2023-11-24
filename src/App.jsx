@@ -302,7 +302,7 @@ function App() {
           onEdit={handleEdit}
         />
       </div>
-      <div className="resume-container">
+      <div style={{ zIndex: `${isViewMode ? 1 : -1}` }} className="resume-container">
         <Resume
           personalInfo={personalInfo}
           educationList={educationList}
