@@ -10,6 +10,7 @@
     box-shadow: #3c40434d 0 1px 2px, #3f444726 0 2px 6px 2px;
     background-color: rgb(19, 82, 119);
     padding: 10px 20px;
+    z-index: 2;
 }
 
 .view-icon {
@@ -20,4 +21,14 @@
 .download-icon{
     color: #fff;
     font-size: 2rem;
+}
+
+@media screen and (max-width:1150px) {
+    .view-container{
+        margin: 20px;
+    }
+
+    .download-icon {
+        display: none;
+    }
 }
