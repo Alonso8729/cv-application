@@ -43,3 +43,9 @@
     font-weight: 400;
     font-family: 'Roboto';
 }
+
+@media screen and (max-width:1150px) {
+    .skills-section {
+        margin-bottom: 80px;
+    }
+}
