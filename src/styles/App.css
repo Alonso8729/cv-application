@@ -17,6 +17,7 @@
 @media screen and (max-width:1150px) {
     .app {
         flex-direction: column;
+        padding: 24px;
     }
 
     .resume-container {
@@ -33,7 +34,6 @@
     .edit-container {
         width: 100%;
         max-height: none;
-       
     }
 }
 
@@ -54,11 +54,4 @@
     .resume-container {
         transform: scale(0.5);
     }
-}
-
-@media screen and (max-width:420px) {
-    .resume-container {
-        transform: scale(0.45);
-    }
-
 }
